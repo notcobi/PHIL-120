@@ -1,0 +1,431 @@
+%%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{framed}
+\usepackage{tgtermes}
+\usepackage[arrayenv=tabular]{fitch}
+\renewenvironment{fitchproof}
+  {\noindent\par\noindent\begin{nd}}
+  {\end{nd}\par\noindent\ignorespacesafterend}
+% \def\ndrules{
+%   \def\bi{\by{{\eiff}I}}%
+%   \def\be{\by{{\eiff}E}}%
+  \def\ci{\by{{$\rightarrow$}I}}%
+  \def\ce{\by{{$\rightarrow$}E}}%
+  \def\mp{\by{MP}}% TB: modus ponens; same as conditional elimination
+%   \def\Ai{\by{$\forall$I}}%
+%   \def\Ae{\by{$\forall$E}}%
+%   \def\Ei{\by{$\exists$I}}%
+%   \def\Ee{\by{$\exists$E}}%
+  \def\ae{\by{{$\land$}E}}% and elimination
+  \def\ai{\by{{$\land$}I}}% and introduction
+  \def\oi{\by{{$\lor$}I}}% or introduction
+%   \def\oe{\by{{\eor}E}}%
+%   \def\ni{\by{{\enot}I}}%
+%   \def\ne{\by{{\enot}E}}%
+    \def\ne{\by{{$\neg$}E}}% negation elimination
+%   \def\ri{\by{{\enot}E}}% RZ: this is now \enot E
+%   \def\re{\by{X}}% RZ: this is now X (explosion)
+%   \def\ii{\by{$=$I}}%
+%   \def\ie{\by{$=$E}}%
+%   \def\tnd{\by{LEM}}% RZ: Law of excluded middle
+  \def\ip{\by{IP}}% RZ: indirect proof
+%   \def\dne{\by{DNE}}% TB: double negation elimination (derived rule)
+  \def\mt{\by{MT}}% TB: modus tollens (derived rule)
+  \def\ds{\by{DS}}% TB: disjunctive syllogism (a derived rule in Cambridge version)
+%   \def\dem{\by{DeM}}% TB: De Morgan rule (derived rule)
+%   \def\cq{\by{CQ}}% TB: conversion of quantifiers (derived rule)
+%   \def\boxi{\by{{\ebox}I}}%
+%   \def\boxe{\by{{\ebox}E}}%
+%   \def\mc{\by{MC}}%
+%   \def\diadf{\by{Def{\ediamond}}}%
+%   \def\rt{\by{R$\mathbf{T}$}}%
+%   \def\rfour{\by{R$\mathbf{4}$}}%
+%   \def\rfive{\by{R$\mathbf{5}$}}%
+%   \def\ellipsesline{\have[ ]{}{\vdots}}%
+% }
+% \def\by#1#2{#1} % allow \by outside proofs
+
+\usepackage[
+pdftitle={PHIL 120 Assignment}, 
+pdfauthor={Alex Diep, University of Alberta},
+colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,bookmarks=true,
+bookmarksopenlevel=2]{hyperref}
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{enumitem} % Add this line to include the enumitem package
+\usepackage{booktabs}
+
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+
+
+% custom footers and headers
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{Assignment \textnumero{} 4}
+\cfoot{Alex Diep}
+\rfoot{Page \thepage\ /\ \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Define the custom page style for the first page
+\fancypagestyle{firstpage}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyfoot[L]{Assignment \textnumero{} 1}
+  \fancyfoot[C]{}
+  \fancyfoot[R]{Page \thepage\ /\ \pageref*{LastPage}}
+  \renewcommand{\headrulewidth}{0pt} % Remove header rule
+  \renewcommand{\footrulewidth}{0pt} % Remove footer rule
+}
+
+\let\biconditional\leftrightarrow
+
+%
+
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{PHIL 120 Assignment 4 -- Symbolic Logic I}
+
+\author{Alex Diep, University of Alberta}
+
+\date{\today}
+
+\maketitle
+\paragraph{Question 1}\phantom{a}
+
+\begin{framed}
+b
+\end{framed}
+
+\paragraph{Question 2}\phantom{a}
+\begin{framed}
+    b
+\end{framed}
+
+\paragraph{Question 3}\phantom{a}
+\begin{framed}
+    c
+\end{framed}
+
+\paragraph{Question 4}\phantom{a}
+\begin{framed}
+    a
+\end{framed}
+
+\paragraph{Question 5}\phantom{a}
+\begin{framed}
+    \noindent Domain: Let the domain be $\{a, b\}$ \\
+
+    \noindent The extension of $A(x): \; \{a, b\}$ \\
+    The extension of $P(x): \; \{a\}$ \\
+    The extension of $Q(x): \; \{\}$ \\
+    
+    \noindent Sentence 1 is always true because of the disjunction with $A(x)$ being true for both $x$.\\
+    Sentence 2 is always false because of the disjunction with $Q(x)$ being false for both $x$.\\
+
+    \noindent Therefore, these sentences are not equivalent.
+\end{framed}
+
+\paragraph{Question 6}\phantom{a}
+\begin{framed}
+    \noindent Domain: Let the domain be $\{a, b\}$ \\
+
+    \noindent The extension of $P(x): \; \{a\}$ \\ 
+    The extension of $G(x): \; \{a\}$ \\
+
+    \noindent $\forall x(P(x) \rightarrow G(x))$ is true: vacuously true for $x = b$, and holds for $x = a$.\\
+    $\exists x P(x)$ is true since $P(a)$ is true.\\
+    $\forall x G(x)$ is false since $G(b)$ is false.\\
+
+    \noindent Therefore, the entailment does not hold.
+\end{framed}
+
+\paragraph{Question 7}\phantom{a}
+\begin{framed}
+    \noindent \textbf{Key:} 
+    \begin{itemize}
+        \item Domain: All people.
+        \item $G(x)$: $x$ is a genius.
+        \item $M(x)$: $x$ is misunderstood.
+        \item $L(x)$: $x$ suffers from loneliness.
+        \item $t$: Tesla.
+    \end{itemize}
+    
+    \noindent \textbf{Symbolization of the Argument:}
+    \[
+    \begin{aligned}
+    &1.\; \forall x \bigl(G(x) \to M(x)\bigr)\\
+    &2.\; \forall x \bigl(M(x) \to L(x)\bigr)\\
+    &3.\; G(t)\\
+    &\therefore \; L(t)
+    \end{aligned}
+    \]
+\end{framed}
+
+
+
+\paragraph{Question 8}\phantom{a}
+\begin{framed}
+    $H(a, b) \to \neg H(b, a)$
+\end{framed}
+
+\paragraph{Question 9}\phantom{a} 
+\begin{framed}
+    $\exists \text{E}$, 3, 4-8
+\end{framed}
+
+\paragraph{Question 10}\phantom{a}
+\begin{framed}
+    $\forall$I, 9
+\end{framed}
+
+    % sentence 1: ∀x(A(x) ∨ (P(x) ∧ Q(x)))
+%     Domain: Let the domain be 
+% {
+% 1
+% ,
+% 2
+% }
+% {1,2}.
+
+% Assignment of Truth Values:
+% We assign truth values for the predicates 
+% 𝐴
+% A, 
+% 𝑃
+% P, and 
+% 𝑄
+% Q at each element of the domain in such a way that we can make Sentence 1 true but Sentence 2 false.
+
+% Let:
+
+% For 
+% 𝑥
+% =
+% 1
+% x=1:
+
+% 𝐴
+% (
+% 1
+% )
+% =
+% false
+% A(1)=false
+
+% 𝑃
+% (
+% 1
+% )
+% =
+% true
+% P(1)=true
+
+% 𝑄
+% (
+% 1
+% )
+% =
+% true
+% Q(1)=true
+
+% For 
+% 𝑥
+% =
+% 2
+% x=2:
+
+% 𝐴
+% (
+% 2
+% )
+% =
+% true
+% A(2)=true
+
+% 𝑃
+% (
+% 2
+% )
+% =
+% false
+% P(2)=false
+
+% 𝑄
+% (
+% 2
+% )
+% =
+% false
+% Q(2)=false
+
+% \paragraph{Question 1: Is the following an expression of FOL? (0.5 points)}
+% \begin{equation*}
+%     Q(x,y) \rightarrow \lor B(x)
+% \end{equation*}
+% \begin{framed}
+% No, the $\lor$ and $\rightarrow$ don't correctly act as quantifiers in this expression.
+% \end{framed}
+
+% \paragraph{Question 2: What are the scopes of the two quantifiers in the following sentence? (0.5 points)}
+% \begin{equation*}
+%     \forall x \left( Q(p) \leftrightarrow \left( A(x,c) \land \exists y \left( R(y) \land Q(x) \right) \right) \right) \rightarrow T(d,a)
+% \end{equation*}
+% \begin{framed}
+%     \begin{equation*}
+%         \underbrace{\forall x ( Q(p) \leftrightarrow ( A(x,c) \land \underbrace{\exists y \left( R(y) \land Q(x) \right)}_{\forall y} ))}_{\forall x} \rightarrow T(d,a)
+%     \end{equation*}
+% \end{framed}
+
+% \paragraph{Question 3: Which are, if any, the free variables in the following formula of FOL? (0.5 points)}
+% \begin{equation*}
+%     G(b,y) \rightarrow \exists x F(a,x)
+% \end{equation*}
+% \begin{framed}
+%     The free variables are $b$, $y$, and $a$.  
+% \end{framed}
+
+% \paragraph{Question 4: Is the following a formula of FOL? (0.5 points)}
+% \begin{equation*}
+%     \exists y \left( Q(y) \land R(y) \right)
+% \end{equation*}
+% \begin{framed}
+%     Yes, specifically a sentence of FOL.
+% \end{framed}
+
+% \paragraph{Question 5: Is the following a sentence of FOL? (0.5 points)}
+% \begin{equation*}
+%     \forall y A(y) \leftrightarrow \exists x B(a,x)
+% \end{equation*}
+% \begin{framed}
+%     No, the variable $a$ is free.
+% \end{framed}
+
+% For the next 5 questions (6-10):
+% \begin{enumerate}
+%     \item Provide a symbolization key (one key for all sentences)
+%     \item A domain
+%     \item Symbolize the following English sentences into FOL
+% \end{enumerate}
+% \paragraph{Question 6: ``Not all movies are artsy'' (0.5 points)}
+% \phantom{a}
+% \begin{framed}
+%     \begin{itemize}
+%         \item Domain: Movies
+%         \item Symbolization Key:
+%         \begin{itemize}
+%             \item $M(x)$: $x$ is a movie
+%             \item $A(x)$: $x$ is artsy
+%         \end{itemize}
+%         \item $\neg \forall x \left(M(x) \rightarrow A(x)\right)$
+%     \end{itemize}
+% \end{framed}
+
+% \paragraph{Question 7: ``All teachers like some movies'' (0.5 points)}
+% \phantom{a}
+% \begin{framed}
+%     \begin{itemize}
+%         \item Domain: People
+%         \item Symbolization Key:
+%         \begin{itemize}
+%             \item $T(x)$: $x$ is a teacher
+%             \item $L(x,y)$: $x$ likes $y$
+%             \item $M(x)$: $x$ is a movie
+%         \end{itemize}
+%         \item $\forall x \left(T(x) \rightarrow \exists y \left(M(y) \land L(x,y)\right)\right)$
+%     \end{itemize}
+% \end{framed}
+
+% \paragraph{Question 8: ``Some artsy movies are boring, and some boring teacher is artsy'' (0.5 points)}
+% \phantom{a}
+% \begin{framed}
+%     \begin{itemize}
+%         \item Domain: Movies and People
+%         \item Symbolization Key:
+%         \begin{itemize}
+%             \item $M(x)$: $x$ is a movie
+%             \item $A(x)$: $x$ is artsy
+%             \item $B(x)$: $x$ is boring
+%             \item $T(x)$: $x$ is a teacher
+%         \end{itemize}
+%         \item $\exists x \left(\left(M(x) \land A(x)\right) \land B(x)\right) \land \exists y \left( \left(T(y) \land B(y)\right) \land A(y)\right)$
+%     \end{itemize}
+% \end{framed}
+
+% \paragraph{Question 9: ``Only Amy likes artsy movies'' (0.5 points)}
+% \phantom{a}
+% \begin{framed}
+%     \begin{itemize}
+%         \item Domain: People and Movies
+%         \item Symbolization Key:
+%         \begin{itemize}
+%             \item $a$: Amy
+%             \item $M(x)$: $x$ is a movie
+%             \item $L(x,y)$: $x$ likes $y$
+%             \item $A(x)$: $x$ is artsy
+%         \end{itemize}
+%         \item $\forall x \forall y \left( \left( \left(M(y) \land L(x, y)\right) \land A(y) \right) \rightarrow (x = a)\right)$
+%     \end{itemize}
+% \end{framed}
+
+% \paragraph{Question 10: ``At least one artsy movie is not boring'' (0.5 points)}
+% \phantom{a}
+% \begin{framed}
+%     \begin{itemize}
+%         \item Domain: Movies
+%         \item Symbolization Key:
+%         \begin{itemize}
+%             \item $M(x)$: $x$ is a movie
+%             \item $A(x)$: $x$ is artsy
+%             \item $B(x)$: $x$ is boring
+%         \end{itemize}
+%         \item $\exists x \left( \left(M(x) \land A(x) \right) \land \neg B(x)\right)$
+%     \end{itemize}
+% \end{framed}
+\end{document}

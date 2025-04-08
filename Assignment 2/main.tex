@@ -1,0 +1,394 @@
+%%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{framed}
+\usepackage{tgtermes}
+\usepackage[arrayenv=tabular]{fitch}
+\renewenvironment{fitchproof}
+  {\noindent\par\noindent\begin{nd}}
+  {\end{nd}\par\noindent\ignorespacesafterend}
+% \def\ndrules{
+%   \def\bi{\by{{\eiff}I}}%
+%   \def\be{\by{{\eiff}E}}%
+  \def\ci{\by{{$\rightarrow$}I}}%
+  \def\ce{\by{{$\rightarrow$}E}}%
+  \def\mp{\by{MP}}% TB: modus ponens; same as conditional elimination
+%   \def\Ai{\by{$\forall$I}}%
+%   \def\Ae{\by{$\forall$E}}%
+%   \def\Ei{\by{$\exists$I}}%
+%   \def\Ee{\by{$\exists$E}}%
+  \def\ae{\by{{$\land$}E}}% and elimination
+  \def\ai{\by{{$\land$}I}}% and introduction
+  \def\oi{\by{{$\lor$}I}}% or introduction
+%   \def\oe{\by{{\eor}E}}%
+%   \def\ni{\by{{\enot}I}}%
+%   \def\ne{\by{{\enot}E}}%
+    \def\ne{\by{{$\neg$}E}}% negation elimination
+%   \def\ri{\by{{\enot}E}}% RZ: this is now \enot E
+%   \def\re{\by{X}}% RZ: this is now X (explosion)
+%   \def\ii{\by{$=$I}}%
+%   \def\ie{\by{$=$E}}%
+%   \def\tnd{\by{LEM}}% RZ: Law of excluded middle
+  \def\ip{\by{IP}}% RZ: indirect proof
+%   \def\dne{\by{DNE}}% TB: double negation elimination (derived rule)
+  \def\mt{\by{MT}}% TB: modus tollens (derived rule)
+  \def\ds{\by{DS}}% TB: disjunctive syllogism (a derived rule in Cambridge version)
+%   \def\dem{\by{DeM}}% TB: De Morgan rule (derived rule)
+%   \def\cq{\by{CQ}}% TB: conversion of quantifiers (derived rule)
+%   \def\boxi{\by{{\ebox}I}}%
+%   \def\boxe{\by{{\ebox}E}}%
+%   \def\mc{\by{MC}}%
+%   \def\diadf{\by{Def{\ediamond}}}%
+%   \def\rt{\by{R$\mathbf{T}$}}%
+%   \def\rfour{\by{R$\mathbf{4}$}}%
+%   \def\rfive{\by{R$\mathbf{5}$}}%
+%   \def\ellipsesline{\have[ ]{}{\vdots}}%
+% }
+% \def\by#1#2{#1} % allow \by outside proofs
+
+\usepackage[
+pdftitle={PHIL 120 Assignment}, 
+pdfauthor={Alex Diep, University of Alberta},
+colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,bookmarks=true,
+bookmarksopenlevel=2]{hyperref}
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{enumitem} % Add this line to include the enumitem package
+\usepackage{booktabs}
+
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+
+
+% custom footers and headers
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{Assignment \textnumero{} 2}
+\cfoot{Alex Diep}
+\rfoot{Page \thepage\ /\ \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Define the custom page style for the first page
+\fancypagestyle{firstpage}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyfoot[L]{Assignment \textnumero{} 1}
+  \fancyfoot[C]{}
+  \fancyfoot[R]{Page \thepage\ /\ \pageref*{LastPage}}
+  \renewcommand{\headrulewidth}{0pt} % Remove header rule
+  \renewcommand{\footrulewidth}{0pt} % Remove footer rule
+}
+
+\let\biconditional\leftrightarrow
+
+%
+
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{PHIL 120 Assignment 2 -- Symbolic Logic I}
+
+\author{Alex Diep, University of Alberta}
+
+\date{\today}
+
+\maketitle
+
+\paragraph{Question 1:} \textit{Suppose $\neg A$ is True. What can you say about the following sentence? (0.5 points)}
+\begin{equation*}
+    (A \rightarrow (C \rightarrow B)) \rightarrow ((A \rightarrow B) \rightarrow (\neg A \rightarrow (C \rightarrow A)))
+\end{equation*}
+\begin{enumerate}[label=\textit{\Alph*:}]
+    \item \textit{It is True}
+    \item \textit{The truth value of the sentence depends on the assignment values for B and C}
+    \item \textit{It is False}
+    \item \textit{It can't be determined}
+\end{enumerate}
+Since $\neg A$ is True, $A$ is False. Therefore any statement of the form $A \rightarrow \mathbb{X}$ is True. Writing a partial truth table:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c c|c c c c c c c c c c}
+        \toprule
+        $A$ & $B$ & $C$ & $(A \to (C \to B))$ & $\to$ & $((A \to B)$ & $\to$ & $(\neg A$ & $\to$ & $(C$ & $\to$ & $A$ & $)))$ \\
+        \midrule
+        F & T & T & T & \textbf{F} & T & F & T & F & T & F & F \\
+        F & T & F & T & \textbf{T} & T & T & T & T & F & T & F \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\begin{framed}
+As we can see, the truth value of the sentence depends on the assignment value of $C$. Therefore, the correct answer is \textbf{B}.
+\end{framed}
+
+\paragraph{Question 2:} \textit{Suppose A is a Tautology and B is a Contradiction. Note that A, B, C are metavariables (an atomic sentence can’t be a Tautology or a Contradiction). What can you say about the following sentence? (0.5 points)}
+\begin{equation*}
+    (\neg A \land C) \rightarrow \neg (\neg B \lor C)
+\end{equation*}
+\begin{enumerate}[label=\textit{\Alph*:}]
+    \item \textit{It can't be determined}
+    \item \textit{It is a Tautology}
+    \item \textit{It is a Contradiction}
+    \item \textit{It is a contingent sentence (can be either True or False)}
+\end{enumerate}
+First observe that $(\neg A \land C)$ is a contradiction and $(\neg B \lor C)$ is a tautology. Let us construct a truth table to determine the truth value of the sentence:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c c | c c c c c c c c}
+        \toprule
+        $A$ & $B$ & $C$ & $(\neg A \land C)$ & $\rightarrow$ & $\neg$ & $(\neg B \lor C)$ \\
+        \midrule
+        T & F & T & F & \textbf{T} & F & T \\
+        T & F & F & F & \textbf{T} & F & T \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\begin{framed}
+Under the given conditions that $A$ is a Tautology and $B$ is a Contradiction, the sentence is a Tautology. Therefore, the correct answer is \textbf{B}.
+\end{framed}
+
+\paragraph{Question 3:} \textit{Suppose C is True, and H is False. What is the truth value of the following sentence? (0.5 points)}
+\begin{equation*}
+    \neg (C \lor \neg E) \rightarrow (G \land \neg H)
+\end{equation*}
+\begin{enumerate}[label=\textit{\Alph*:}]
+    \item \textit{It can't be determined}
+    \item \textit{It is True}
+    \item \textit{It depends on the truth value of E}
+    \item \textit{It is False}
+\end{enumerate}
+\begin{framed}
+Given that $C$ is True, then $\neg(C \lor \neg E)$ is False. 
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{c c c c | c c c c c c}
+%         \toprule
+%         $C$ & $E$ & $G$ & $H$ & $\neg(C \lor \neg E)$ & $\rightarrow$ & $(G$ & $\land$ & $\neg H)$ \\
+%         \midrule
+%         T & T & T & F & F & \textbf{T} & T & F & T \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table}
+Seeing the structure of the sentence is $\mathbb{A} \rightarrow \mathbb{B}$, where $\mathbb{A}$ is a Contradiction, the sentence is a Tautology. Therefore, the correct answer is \textbf{B}.
+\end{framed}
+
+\paragraph{Question 4:} \textit{The following argument is invalid:}
+\begin{equation*}
+    P \rightarrow Q, \neg R \rightarrow \neg Q, R \rightarrow S \therefore \neg P
+\end{equation*}
+\textit{We want to add another premise to the existing premises of the argument to make it valid. Which one of the following choices works? That is, which one of the following choices, if added to the argument as another premise, would make the argument valid? Help yourself with the use of the Truth Tables (it is not required that you write down the Truth Table in your answer!). (0.5 points)}
+\begin{enumerate}[label=\textit{\Alph*:}]
+    \item \textit{$Q$}
+    \item \textit{$R$}
+    \item \textit{$\neg S$}
+    \item \textit{$Q \lor S$}
+\end{enumerate}
+All answers but $\neg S$ lead to a dead end. By $\neg S$ to the premises, 
+\begin{framed}
+\begin{fitchproof}
+    \hypo {1} {P \rightarrow Q}
+    \hypo {2} {\neg R \rightarrow \neg Q}
+    \hypo {3} {R \rightarrow S}
+    \hypo {4} {\neg S}
+    \have {5} {\neg R} \mt{3,4}
+    \have {6} {\neg Q} \ce{2,5}
+    \have {7} {\neg P} \mt{1,6}
+\end{fitchproof}\\
+Therefore, the correct answer is \textbf{C}.
+\end{framed}
+
+\paragraph{Proof 1:} \textit{Fill in the missing citations for the proof. (0.5 point each)}
+\begin{fitchproof}
+    \hypo {1} {C \land D}
+    \hypo {2} {(D \lor E) \rightarrow G}
+    \hypo {3} {(G \land C) \rightarrow \neg L}
+    \hypo {4} {\neg N \rightarrow L}
+    \have {5} {D} \ae{1}
+    \have {6} {D \lor E} \by{\textbf{Question 5}}{}
+    \have {7} {G} \ce{2,6}
+    \have {8} {C} \ae{1}
+    \have {9} {G \land C} \ai{7,8}
+    \have {10} {\neg L} \ce{3,9}
+    \open
+    \hypo {11} {\neg N}
+    \have {12} {L} \ce{4,11}
+    \have {13} {\bot} \ne{10,12}
+    \close
+    \have {14} {N} \by{\textbf{Question 6}}{}
+\end{fitchproof}
+\begin{framed}
+    \begin{fitchproof}
+        \hypo {1} {C \land D}
+        \hypo {2} {(D \lor E) \rightarrow G}
+        \hypo {3} {(G \land C) \rightarrow \neg L}
+        \hypo {4} {\neg N \rightarrow L}
+        \have {5} {D} \ae{1}
+        \have {6} {D \lor E} \by{\textbf{$\lor$I, 5}}{}
+        \have {7} {G} \ce{2,6}
+        \have {8} {C} \ae{1}
+        \have {9} {G \land C} \ai{7,8}
+        \have {10} {\neg L} \ce{3,9}
+        \open
+        \hypo {11} {\neg N}
+        \have {12} {L} \ce{4,11}
+        \have {13} {\bot} \ne{10,12}
+        \close
+        \have {14} {N} \by{\textbf{IP, 11-13}}{}
+    \end{fitchproof}
+\end{framed}
+
+\paragraph{Proof 2:} \textit{Fill in the missing citations for the proof. (0.5 point each)}
+\begin{fitchproof}
+    \hypo {1} {P \lor Q}
+    \hypo {2} {\neg C \land R}
+    \hypo {3} {\neg S \rightarrow \neg P}
+    \hypo {4} {Q \rightarrow (S \land R)}
+    \open
+    \hypo {5} {P}
+    \open
+    \hypo {6} {\neg S}
+    \have {7} {\neg P} \by{\textbf{Question 7}}{}
+    \have {8} {\bot} \ne{7,5}
+    \close
+    \have {9} {S} \ip{6-8}
+    \close
+    \open
+    \hypo{10} {Q}
+    \have{11} {S \land R} \ce{4,10}
+    \have{12} {S} \ae{11}
+    \close
+    \have{13} {S} \oe{1,5-9,10-12}
+    \have{14} {R} \by{\textbf{Question 8}}{}
+    \have{15} {S \land R} \ai{13,14}
+\end{fitchproof}
+\begin{framed}
+    \begin{fitchproof}
+        \hypo {1} {P \lor Q}
+        \hypo {2} {\neg C \land R}
+        \hypo {3} {\neg S \rightarrow \neg P}
+        \hypo {4} {Q \rightarrow (S \land R)}
+        \open
+        \hypo {5} {P}
+        \open
+        \hypo {6} {\neg S}
+        \have {7} {\neg P} \by{\textbf{$\rightarrow$E, 3, 6}}{}
+        \have {8} {\bot} \ne{7,5}
+        \close
+        \have {9} {S} \ip{6-8}
+        \close
+        \open
+        \hypo{10} {Q}
+        \have{11} {S \land R} \ce{4,10}
+        \have{12} {S} \ae{11}
+        \close
+        \have{13} {S} \oe{1,5-9,10-12}
+        \have{14} {R} \by{\textbf{$\land$E, 11}}{}
+        \have{15} {S \land R} \ai{13,14}
+    \end{fitchproof}
+    
+\end{framed}
+
+\paragraph{Proof 3:} \textit{Fill in the missing citations for the proof. (0.5 point each)}
+\begin{fitchproof}
+    \hypo {1} {M \rightarrow \neg \neg R}
+    \hypo {2} {G \rightarrow D}
+    \hypo {3} {\neg M \rightarrow \neg \neg D}
+    \open
+    \hypo {4} {\neg D}
+    \open
+    \hypo {5} {G}
+    \have {6} {D} \ce{2,5}
+    \have {7} {\bot} \ne{4,6}
+    \close
+    \have {8} {\neg G} \ni{5-7}
+    \open 
+    \hypo {9} {\neg R}
+    \open 
+    \hypo {10} {\neg M}
+    \have {11} {\neg \neg D} \ce{3,10}
+    \have {12} {\bot} \ne{11, 4}
+    \close
+    \have {13} {M} \ip{10-12}
+    \have {14} {\neg \neg R} \ce{1,13}
+    \have {15} {\bot} \by{\textbf{Question 9}}{}
+    \close
+    \have {16} {R} \ip{9-15}
+    \have {17} {\neg G \land R} \ai{8,16}
+    \close
+    \have {18} {\neg D \rightarrow (\neg G \land R)} \by{\textbf{Question 10}}{}
+\end{fitchproof}
+\begin{framed}
+\begin{fitchproof}
+    \hypo {1} {M \rightarrow \neg \neg R}
+    \hypo {2} {G \rightarrow D}
+    \hypo {3} {\neg M \rightarrow \neg \neg D}
+    \open
+    \hypo {4} {\neg D}
+    \open
+    \hypo {5} {G}
+    \have {6} {D} \ce{2,5}
+    \have {7} {\bot} \ne{4,6}
+    \close
+    \have {8} {\neg G} \ni{5-7}
+    \open 
+    \hypo {9} {\neg R}
+    \open 
+    \hypo {10} {\neg M}
+    \have {11} {\neg \neg D} \ce{3,10}
+    \have {12} {\bot} \ne{11, 4}
+    \close
+    \have {13} {M} \ip{10-12}
+    \have {14} {\neg \neg R} \ce{1,13}
+    \have {15} {\bot} \by{\textbf{$\neg$E, 14, 9}}{}
+    \close
+    \have {16} {R} \ip{9-15}
+    \have {17} {\neg G \land R} \ai{8,16}
+    \close
+    \have {18} {\neg D \rightarrow (\neg G \land R)} \by{\textbf{$\rightarrow$I, 4-17}}{}
+\end{fitchproof}
+\end{framed}
+ 
+\end{document}

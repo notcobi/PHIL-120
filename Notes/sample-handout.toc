@@ -6,13 +6,15 @@
 \contentsline {subsection}{First Steps to Symbolization}{5}{subsection*.6}%
 \contentsline {subsection}{Connectives}{5}{subsection*.7}%
 \contentsline {subsection}{Sentences of Truth Functional Logic}{8}{subsection*.8}%
-\contentsline {section}{Figures and Tables}{9}{section*.9}%
-\contentsline {subsection}{References}{10}{subsection*.10}%
-\contentsline {section}{Full-width text blocks}{10}{section*.11}%
-\contentsline {section}{Typography}{10}{section*.12}%
-\contentsline {subsection}{Typefaces}{10}{subsection*.13}%
-\contentsline {subsection}{Letterspacing}{10}{subsection*.14}%
-\contentsline {section}{Installation}{11}{section*.15}%
-\contentsline {section}{More Documentation}{11}{section*.16}%
-\contentsline {section}{Support}{11}{section*.17}%
+\contentsline {subsection}{Ambiguity}{9}{subsection*.9}%
+\contentsline {subsection}{Use and Mention in Logic}{9}{subsection*.10}%
+\contentsline {section}{Figures and Tables}{10}{section*.11}%
+\contentsline {subsection}{References}{11}{subsection*.12}%
+\contentsline {section}{Full-width text blocks}{11}{section*.13}%
+\contentsline {section}{Typography}{12}{section*.14}%
+\contentsline {subsection}{Typefaces}{12}{subsection*.15}%
+\contentsline {subsection}{Letterspacing}{12}{subsection*.16}%
+\contentsline {section}{Installation}{12}{section*.17}%
+\contentsline {section}{More Documentation}{12}{section*.18}%
+\contentsline {section}{Support}{12}{section*.19}%
 \contentsfinish 
